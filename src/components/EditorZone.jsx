@@ -10,7 +10,6 @@ import { Rnd } from "react-rnd";
 
 const EditorZone = () => {
   const [componentData, setComponentData] = useState([]);
-  console.log("componentData", componentData);
 
   useEffect(() => {
     const layoutData = localStorage.getItem("rgl-7");
@@ -57,7 +56,7 @@ const EditorZone = () => {
           x: 150,
           y: 205,
           width: 500,
-          height: 500,
+          height: 200,
         };
       case "DROPDOWN":
         return {
@@ -109,8 +108,11 @@ const EditorZone = () => {
 
   const onDrop = (event) => {
     var componentType = event.dataTransfer.getData("componentType");
+    const x = event.clientX;
+    const y = event.clientY;
     const itemId = uuid();
-    const renderTypeProperties = renderLayoutWidth(componentType);
+    let renderTypeProperties = renderLayoutWidth(componentType);
+    renderTypeProperties = {...renderTypeProperties, x, y}
     const data = {
       id: itemId,
       currentPosition: {
@@ -118,7 +120,6 @@ const EditorZone = () => {
       },
       type: componentType,
     };
-    console.log("data", data);
     setComponentData([...componentData, data]);
     saveToLS("allData", {
       // layout: data,
@@ -139,6 +140,7 @@ const EditorZone = () => {
       componentData: [...componentData],
     });
   };
+
 
   const onResizeWidget = (id = "", width = 0, height = 0) => {
     let components = componentData?.map((item) => {
@@ -172,10 +174,6 @@ const EditorZone = () => {
               }}
               onDragStop={(_, d) => onDragWidget(component.id, d.x, d.y)}
               onResizeStop={(e, direction, ref, delta, position) => {
-                console.log("position", position);
-                console.log("fional", delta);
-                console.log("ref", ref.style.width, ref.style.height);
-                console.log("e", e);
                 let height = parseInt(ref.style.height) || 0;
                 let width = parseInt(ref.style.width) || 0;
                 onResizeWidget(component.id, height, width);
