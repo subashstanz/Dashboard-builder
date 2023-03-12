@@ -2,7 +2,7 @@ import React from "react";
 
 const TableComponent = (props) => {
   return (
-    <div>
+    <div className="w-full h-full">
       <div class="overflow-x-auto">
         <table class="min-w-full divide-y-2 divide-gray-200 text-sm">
           <thead>

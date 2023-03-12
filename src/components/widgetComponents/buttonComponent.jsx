@@ -4,7 +4,7 @@ const ButtonComponent = (props) => {
   return (
     <div
       onClick={() => alert('Hi user')}
-      className="inline-flex cursor-pointer items-center gap-2 rounded border border-indigo-600 bg-indigo-600 px-8 py-3 text-white "
+      className="inline-flex w-full h-full cursor-pointer items-center gap-2 rounded border border-indigo-600 bg-indigo-600 px-8 py-3 text-white "
     >
       <span className="text-sm font-medium"> Download </span>
 

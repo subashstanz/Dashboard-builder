@@ -11,9 +11,9 @@ const options = [
 
 const DropdownComponent = (props) => {
   return (
-    <div>
+    <div className='bg-white'>
       <Select
-        className="w-[30rem]"
+        className="w-[30rem] bg-white"
         closeMenuOnSelect={false}
         components={animatedComponents}
         placeholder={"Select the value"}

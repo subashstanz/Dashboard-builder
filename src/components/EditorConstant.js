@@ -21,5 +21,10 @@ export const EDITOR_PICKER = [
     type: "TABLE",
     description: "Display tabular Data",
   },
+  {
+    label: "Canvas",
+    type: "CANVAS",
+    description: "color",
+  },
 ];
 
