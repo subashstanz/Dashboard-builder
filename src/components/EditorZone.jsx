@@ -6,8 +6,6 @@ import InputComponent from "./widgetComponents/inputComponent";
 import TableComponent from "./widgetComponents/tableComponent";
 import CanvasComponent from "./widgetComponents/canvasComponent";
 import { FiX } from "react-icons/fi";
-import "/node_modules/react-grid-layout/css/styles.css";
-import "/node_modules/react-resizable/css/styles.css";
 import { Rnd } from "react-rnd";
 
 const EditorZone = () => {
